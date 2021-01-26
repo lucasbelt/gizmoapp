@@ -1,0 +1,37 @@
+<% if @todo.errors.any? %>
+
+  <div style="background-color: rgba(255, 0, 0, 0.15)">
+   <div style="color: red">The following errors prevented the todo form being saved</div>
+   <ul>
+     <% @todo.errors.full_messages.each do |msg| %>
+      <li>
+        <%= msg %>
+      </li>
+     <% end %>
+   </ul>
+  </div>
+  
+<% end %>
+<%= form_for @todo do |f| %>
+
+  <label>
+    <%= f.label :name %>
+  </label>
+  <div>
+    <%= f.text_field :name %>
+  </div>
+
+  <label>
+    <%= f.label :description %>
+  </label>
+  <div>  <%= f.text_area :description %>
+  </div>
+
+  <div>
+    <%= f.submit %>
+  </div>
+
+<% end %>
+<div class="back-list">
+  <%= link_to "Back to Todos listing", todos_path %>
+</div>
