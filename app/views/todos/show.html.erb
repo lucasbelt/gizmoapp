@@ -15,3 +15,8 @@
   <label>Description: </label>
   <%= @todo.description %>
 </p>
+
+<div class="back-list">
+  <%= link_to "Edit this todo", edit_todo_path(@todo) %> | 
+  <%= link_to "Back to Todos listing", todos_path %>
+</div>
