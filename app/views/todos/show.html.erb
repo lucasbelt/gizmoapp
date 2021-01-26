@@ -1,0 +1,17 @@
+<h1>SHOW TODO PAGE</h1>
+<% if flash[:notice] %>
+
+  <div style="background-color: rgba(0,128,0, 0.15)">
+   <div style="color: green"><%= flash[:notice] %></div>
+  </div>
+
+<% end %>
+
+<div>
+  <label>Name: </label><%= @todo.name %>
+</div>
+
+<p>
+  <label>Description: </label>
+  <%= @todo.description %>
+</p>
