@@ -18,6 +18,9 @@ $navbar-default-bg: #000000;
 .center {
   text-align: center; 
 }
+.container {
+  margin-top: 60px;
+}
 .jumbotron {
   background-image: linear-gradient(to top, transparent, rgba(0, 0, 0, 0.7)), asset-url("Slider-01_0.png");
   background-size: cover;
@@ -30,4 +33,10 @@ $navbar-default-bg: #000000;
   letter-spacing: -1px;
   text-align: center;
   text-shadow: 1px 1px 2px black;
+}
+.bg-dark {
+  background-color: #373f50 !important;
+}
+.bg-dark h3, .bg-dark h2, .bg-dark .text-muted {
+  color: #FFF;
 }
