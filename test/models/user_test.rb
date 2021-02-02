@@ -1,63 +1,63 @@
 require "test_helper"
 
-class ChetTest < ActiveSupport::TestCase
+class UserTest < ActiveSupport::TestCase
 
   def setup
-    @chef = Chef.new(chefname: "lucasbelt", email: "lucasbelt@hotmail.com")
+    @user = User.new(username: "lucasbelt", email: "lucasbelt@hotmail.com")
   end
 
   test "should be valid" do
-    assert @chef.valid?
+    assert @user.valid?
   end
 
   test "Name should be present" do
-    @chef.chefname = " "
-    assert_not @chef.valid?
+    @user.username = " "
+    assert_not @user.valid?
   end
 
   test "Name should be less than 30 characters" do
-    @chef.chefname = "a" * 31
-    assert_not @chef.valid?
+    @user.username = "a" * 31
+    assert_not @user.valid?
   end
 
   test "Email should be present" do
-    @chef.email = " "
-    assert_not @chef.valid?
+    @user.email = " "
+    assert_not @user.valid?
   end
 
   test "Email should not too long" do
-    @chef.email = "a" * 245 + "@example.com"
-    assert_not @chef.valid?
+    @user.email = "a" * 245 + "@example.com"
+    assert_not @user.valid?
   end
 
   test "Email should accept correct format" do
     valid_emails = %w[user@example.com lucasbelt@hotmail.com l.first@yahoo.ca john+smith@co.uk.org]
     valid_emails.each do |valids|
-      @chef.email = valids
-      assert @chef.valid?, "#{valids.inspect} should be valid"
+      @user.email = valids
+      assert @user.valid?, "#{valids.inspect} should be valid"
     end
   end
 
   test "Should reject invalid addresses" do
     invalid_emails = %w[user@example lucasbelt@hotmail,com l.first@yahoo. john@bar+uk.org]
     invalid_emails.each do |invalids|
-      @chef.email = invalids
-      assert_not @chef.valid?, "#{invalids.inspect} should be invalid"
+      @user.email = invalids
+      assert_not @user.valid?, "#{invalids.inspect} should be invalid"
     end
   end
 
   test "Email should be unique and case insensitive" do
-    duplicate_chef = @chef.dup
-    duplicate_chef.email = @chef.email.upcase
-    @chef.save
-    assert_not duplicate_chef.valid?
+    duplicate_user = @user.dup
+    duplicate_user.email = @user.email.upcase
+    @user.save
+    assert_not duplicate_user.valid?
   end
 
   test "Email should be lower case before hitting db" do
     mixed_email = "John@Example.com"
-    @chef.email = mixed_email
-    @chef.save
-    assert_equal mixed_email.downcase, @chef.reload.email
+    @user.email = mixed_email
+    @user.save
+    assert_equal mixed_email.downcase, @user.reload.email
   end
 
 end
