@@ -1,11 +1,10 @@
-<!-- div style="background-color: rgba(255, 0, 0, 0.15)">
- < div style="color: red">The following errors prevented the todo form being saved</div -->
-<div style="background-color: rgba(0,128,0, 0.15)">
-  <ul>
+<div class="row">
+  <div class="col-md-10 col-md-offset-1">
     <% flash.each do |name, msg| %>
-    <li>
-      <div style="color: green"><%= msg %></div>
-    </li>
+      <div class="alert alert-<%= name %>">
+        <a href="#" class="close" data-dismiss="alert">&#215;</a>
+        <%= msg %>
+      </div>
     <% end %>
-  </ul>
+  </div>
 </div>

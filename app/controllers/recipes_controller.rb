@@ -18,7 +18,7 @@ class RecipesController < ApplicationController
     if @recipe.save
       # save post
       flash[:success] = "Recipe was created successfully!"
-      redirect_to recipe_url(@recipe)
+      redirect_to recipe_path(@recipe)
     else
       render "new"
     end
