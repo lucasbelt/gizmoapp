@@ -1,8 +1,21 @@
-$navbar-default-bg: #000000;
+$navbar-default-bg: #55301B;
+$href-hover: #828487;
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+.btn-xlarge {
+  background-color: $navbar-default-bg;
+  color: #FFF;
+}
+.btn-xlarge:hover {
+  background-color: #828487;
+  color: #FFF;
+}
+a,
+.btn {
+  transition: all 0.5s ease-out;
+}
 #logo {
   float: left;
   font-size: 1.2em;
@@ -39,4 +52,22 @@ $navbar-default-bg: #000000;
 }
 .bg-dark h3, .bg-dark h2, .bg-dark .text-muted {
   color: #FFF;
+}
+.description {
+  margin-top: 0;
+}
+.well a,
+.colormatch a {
+  color: $navbar-default-bg;
+}
+.well a:hover,
+.colormatch a:hover {
+  color: $href-hover;
+  text-decoration: none;
+}
+.chef_info {
+  margin-top: 10px;
+}
+.image-circle {
+  border-radius: 50%;
 }

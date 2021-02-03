@@ -8,9 +8,9 @@ Rails.application.routes.draw do
 
   get "/help", to: "pages#help"
 
-  get "/recipes", to: "recipes#index"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   resources :todos
+  resources :recipes
   resources :products
 end
