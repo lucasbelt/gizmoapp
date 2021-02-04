@@ -7,7 +7,7 @@ class RecipesEditTest < ActionDispatch::IntegrationTest
     @recipe = Recipe.create(name: "Vegetable Saute", description: "Great vegetable Saute, add vegetable and oil", chef: @chef)
   end
 
-  test "Successfully edit recipe" do
+  test "successfully edit recipe" do
     get edit_recipe_path(@recipe)
     assert_template "recipes/edit"
     updated_name = "chicken saute"
@@ -21,6 +21,7 @@ class RecipesEditTest < ActionDispatch::IntegrationTest
     assert_match updated_description, @recipe.description
     assert_select "a[href=?]", edit_recipe_path(@recipe), text: "Edit this recipe"
     assert_select "a[href=?]", recipe_path(@recipe), text: "Delete this recipe"
+    assert_select "a[href=?]", recipes_path, text: "Return to recipes listing"
   end
 
   test "rejected invalid recipe update" do
