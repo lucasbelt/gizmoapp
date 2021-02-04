@@ -71,3 +71,12 @@ a,
 .image-circle {
   border-radius: 50%;
 }
+.recipe-actions {
+  padding-top: 5px;
+  a {
+    color: #FFF;
+  }
+  a:hover {
+    color: $navbar-default-bg;
+  }
+}
