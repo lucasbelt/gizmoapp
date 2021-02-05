@@ -3,7 +3,8 @@ require 'test_helper'
 class RecipesTest < ActionDispatch::IntegrationTest
 
   def setup
-    @chef = Chef.create!(chefname: "mashrur", email: "mashrur@example.com")
+    @chef = Chef.create!(chefname: "mashrur", email: "mashrur@example.com",
+                    password: "password", password_confirmation: "password")
     @recipe = Recipe.create(name: "Vegetable Saute", description: "Great vegetable Saute, add vegetable and oil", chef: @chef)
     @recipe2 = @chef.recipes.build(name: "Chicken Saute", description: "Great chicken dish")
     @recipe2.save
@@ -38,6 +39,7 @@ class RecipesTest < ActionDispatch::IntegrationTest
       post recipes_url, params: { recipe: { name: name_of_recipe, description: description_of_recipe } }
     end
     follow_redirect!
+    assert_template "recipes/show"
     assert_match name_of_recipe.capitalize, response.body
     assert_match description_of_recipe, response.body
   end

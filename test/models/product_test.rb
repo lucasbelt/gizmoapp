@@ -3,7 +3,8 @@ require "test_helper"
 class ProductTest < ActiveSupport::TestCase
 
   def setup
-    @user = User.create!(username: "lucasbelt", email: "lucas@example.com")
+    @user = User.create!(username: "lucasbelt", email: "lucas@example.com",
+                    password: "password", password_confirmation: "password")
     @product = @user.products.build(name: "Vegetable", description: "Great Vegetable Recipe")
   end
 

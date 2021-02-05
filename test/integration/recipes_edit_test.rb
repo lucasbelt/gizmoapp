@@ -3,7 +3,8 @@ require 'test_helper'
 class RecipesEditTest < ActionDispatch::IntegrationTest
 
   def setup
-    @chef = Chef.create!(chefname: "mashrur", email: "mashrur@example.com")
+    @chef = Chef.create!(chefname: "mashrur", email: "mashrur@example.com",
+                    password: "password", password_confirmation: "password")
     @recipe = Recipe.create(name: "Vegetable Saute", description: "Great vegetable Saute, add vegetable and oil", chef: @chef)
   end
 
@@ -17,11 +18,8 @@ class RecipesEditTest < ActionDispatch::IntegrationTest
     #follow_redirect!
     assert_not flash.empty?
     @recipe.reload
-    assert_match updated_name.capitalize, @recipe.name
+    assert_match updated_name, @recipe.name
     assert_match updated_description, @recipe.description
-    assert_select "a[href=?]", edit_recipe_path(@recipe), text: "Edit this recipe"
-    assert_select "a[href=?]", recipe_path(@recipe), text: "Delete this recipe"
-    assert_select "a[href=?]", recipes_path, text: "Return to recipes listing"
   end
 
   test "rejected invalid recipe update" do

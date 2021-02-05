@@ -13,4 +13,10 @@ Rails.application.routes.draw do
   resources :todos
   resources :recipes
   resources :products
+
+  get "/signingup", to: "chefs#new"
+  resources :chefs, except: [:new]
+
+  get "/signup", to: "users#new"
+  resources :users, except: [:new]
 end
