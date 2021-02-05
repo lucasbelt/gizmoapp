@@ -83,6 +83,14 @@ a,
     color: $navbar-default-bg;
   }
 }
+.listing {
+  list-style: none;
+  padding: 0;
+  .chef-title a {
+    font-size: 1.5em;
+    font-weight: bold;
+  }
+}
 /*.navbar-default .navbar-nav > .active > a,
 .navbar-default .navbar-nav > .active > a:hover,
 .navbar-default .navbar-nav > .active > a:focus {

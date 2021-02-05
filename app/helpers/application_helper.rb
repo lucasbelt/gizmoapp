@@ -14,4 +14,8 @@ module ApplicationHelper
     image_tag(gravatar_url, alt: user.username, class: "image-circle")
   end
 
+  def helper_active_class(link_path)
+    'active' if current_page?(link_path)
+  end
+
 end

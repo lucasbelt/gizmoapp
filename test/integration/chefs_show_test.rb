@@ -5,6 +5,8 @@ class ChefsShowTest < ActionDispatch::IntegrationTest
   def setup
     @chef = Chef.create!(chefname: "mashrur", email: "mashrur@example.com",
                     password: "password", password_confirmation: "password")
+    @chef2 = Chef.create!(chefname: "luisc", email: "luisc@example.com",
+                    password: "password", password_confirmation: "password")
     @recipe = Recipe.create(name: "Vegetable Saute", description: "Great vegetable Saute, add vegetable and oil", chef: @chef)
     @recipe2 = @chef.recipes.build(name: "Chicken Saute", description: "Great chicken dish")
     @recipe2.save
@@ -18,6 +20,13 @@ class ChefsShowTest < ActionDispatch::IntegrationTest
     assert_match @recipe.description, response.body
     assert_match @recipe2.description, response.body
     assert_match @chef.chefname, response.body
+  end
+
+  test "Should get chefs listing" do
+    get chefs_path
+    assert_template "chefs/index"
+    assert_select "a[href=?]", chef_path(@chef), text: @chef.chefname
+    assert_select "a[href=?]", chef_path(@chef2), text: @chef2.chefname
   end
 
 end
