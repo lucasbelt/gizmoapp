@@ -1,0 +1,21 @@
+<%= render 'shared/page_title', title: "showing all Products" %>
+
+<%= render 'product', obj: @products %>
+
+<% @products.each do |product| %>
+  <div class="row">
+    <div class="col-md-2">
+      <section class="chef_info center">
+        <%= gravatar_user(product.user, size: 120) %>
+      </section>
+    </div>
+    <div class="col-md-8 well">
+      <h4><%= link_to product.name, product_path(product) %></h4>
+      <p><%= truncate(product.description, length: 150) %></p>
+      <p>
+        <span class="quiet">Created <small><%= time_ago_in_words(product.created_at) %> ago</small></span>
+      </p>
+    </div>
+  </div>
+
+<% end %>
