@@ -90,6 +90,12 @@ a,
     font-size: 1.5em;
     font-weight: bold;
   }
+  .row {
+    margin-top: 0;
+  }
+}
+.listing.row {
+  margin-top: 0;
 }
 /*.navbar-default .navbar-nav > .active > a,
 .navbar-default .navbar-nav > .active > a:hover,

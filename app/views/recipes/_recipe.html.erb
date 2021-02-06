@@ -1,5 +1,5 @@
 <% obj.each do |recipe| %>
-  <div class="row">
+  <li class="listing row">
     <div class="col-md-2">
       <section class="chef_info center">
         <%= gravatar_for(recipe.chef, size: 120) %>
@@ -12,6 +12,5 @@
         <span class="quiet">Created <small><%= time_ago_in_words(recipe.created_at) %> ago</small></span>
       </p>
     </div>
-  </div>
-
+  </li>
 <% end %>
