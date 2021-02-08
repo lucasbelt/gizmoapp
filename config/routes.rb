@@ -13,10 +13,15 @@ Rails.application.routes.draw do
   resources :todos
   resources :recipes
   resources :products
+  resources :resumes
 
   get "/signingup", to: "chefs#new"
   resources :chefs, except: [:new]
 
   get "/signup", to: "users#new"
   resources :users, except: [:new]
+
+  get "/login", to: "sessions#new"
+  post "/login", to: "sessions#create"
+  delete "/logout", to: "sessions#destroy"
 end
