@@ -9,4 +9,5 @@ class User < ApplicationRecord
   has_one :resume
   has_secure_password
   validates :password, presence: true, length: { minimum: 8 }
+  has_many :comments, dependent: :destroy
 end

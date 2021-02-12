@@ -8,5 +8,5 @@ class Chef < ApplicationRecord
   has_many :recipes, dependent: :destroy
   has_secure_password
   validates :password, presence: true, length: { minimum: 8 }, allow_nil: true
-  default_scope -> { order(updated_at: :desc) }
+  has_many :ccomments, dependent: :destroy
 end
