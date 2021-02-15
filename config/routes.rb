@@ -32,4 +32,6 @@ Rails.application.routes.draw do
   get "/userarea", to: "cookies#new"
   post "/userarea", to: "cookies#create"
   delete "/userlogout", to: "cookies#destroy"
+
+  mount ActionCable.server => '/cable'
 end
