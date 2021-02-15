@@ -11,7 +11,9 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   resources :todos
-  resources :recipes
+  resources :recipes do
+    resources :ccomments, only: [:create]
+  end
   resources :products
   resources :resumes
   resources :ingredients, except: [:destroy]

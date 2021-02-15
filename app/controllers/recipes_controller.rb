@@ -15,7 +15,8 @@ class RecipesController < ApplicationController
   end
 
   def show
-    #@recipe = Recipe.find(params[:id])
+    @ccomment = Ccomment.new
+    @comments = @recipe.ccomments.order(:created_at).paginate(:page => params[:page], :per_page => 3)
   end
 
   def new
