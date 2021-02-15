@@ -1,0 +1,14 @@
+<%= render 'shared/page_title', title: "#{@tag.name}" %>
+<% if @tag.products.count != 0 %>
+
+  <h4 class="center">Product's containing <%= @tag.name %></h4>
+  <div class="center">
+    <%= will_paginate @tag_products %>
+  </div>
+  <%= render 'products/product', obj: @tag_products %>
+  <div class="center">
+    <%= will_paginate @tag_products %>
+  </div>
+<% else %>
+  <h4 align="center">No productos yet!</h4>
+<% end %>

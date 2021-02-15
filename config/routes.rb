@@ -14,6 +14,8 @@ Rails.application.routes.draw do
   resources :recipes
   resources :products
   resources :resumes
+  resources :ingredients, except: [:destroy]
+  resources :tags
 
   get "/signingup", to: "chefs#new"
   resources :chefs, except: [:new]

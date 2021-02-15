@@ -8,8 +8,13 @@
     <div class="col-md-8 well">
       <h4><%= link_to product.name, product_path(product) %></h4>
       <p><%= truncate(product.description, length: 150) %></p>
+      <% if product.tags.any? %>
+        <p>
+          Tags: <%= render product.tags %>
+        </p>
+      <% end %>
       <p>
-        <span class="quiet">Created <small><%= time_ago_in_words(product.created_at) %> ago</small></span>
+        <span class="quiet">Created <small><%= time_ago_in_words(product.created_at) %> ago - by: <%= product.user.username.capitalize %></small></span>
       </p>
       <% if user_logged_in? && (current_user == product.user || current_user.admin?) %>
         <div class="recipe-action">

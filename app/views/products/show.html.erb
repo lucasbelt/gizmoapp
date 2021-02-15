@@ -10,7 +10,7 @@
       <em>Created by:</em>
     </p>
     <p class="center">
-      <%= link_to gravatar_user(@product.user), products_path %>
+      <%= link_to gravatar_user(@product.user), user_path(@product.user) %>
     </p>
     <p class="center">
       <small><%= @product.user.username.capitalize %></small>

@@ -5,6 +5,9 @@
     <%= gravatar_user(@user, size: 150) %>
   </div>
 </div>
-
-<h4 class="center"><%= @user.username %>'s products</h4>
-<%= render 'products/product', obj: @user.products %>
+<% if @user.products.count != 0 %>
+  <h4 class="center"><%= @user.username %>'s products</h4>
+  <%= render 'products/product', obj: @user.products %>
+<% else %>
+  <h4 class="center">No products yet!</h4>
+<% end %>

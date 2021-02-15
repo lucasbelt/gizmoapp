@@ -1,9 +1,16 @@
 <%= render 'shared/page_title', title: "showing all recipes" %>
 
 <div class="list-recipe">
-  <ul>
-    <%= render 'recipe', obj: @recipes %>
-  </ul>
+    <div align="center">
+      <%= will_paginate %>
+    </div>
+    <ul>
+      <%= render 'recipe', obj: @recipes %>
+    </ul>
+    <div align="center">
+      <%= will_paginate %>
+    </div>
+  </div>
 
-  <%= will_paginate @recipes, renderer: WillPaginateInfinite::InfinitePagination %>
+  <!-- %= will_paginate @recipes, renderer: WillPaginateInfinite::InfinitePagination % -->
 </div>
