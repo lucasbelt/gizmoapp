@@ -1,0 +1,23 @@
+<%= render "shared/page_title", title: "Chatrooms" %>
+
+<div class="row chat-container">
+  <div class="col-md-12 center-block">
+    <div class="messages" id="messages">
+      <%= render @messages %>
+    </div>
+    <div class="messages-container">
+      <%= form_for(@message, remote: true, :html => { class: "form-horizontal", role: "form" }) do |f| %>
+        <div class="form-group">
+          <div class="col-md-8">
+            <%= f.text_area :content, rows: 10, class: "form-control", data: { behavior: "room_speaker" }, placeholder: "Say something!" %>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-md-offset-2 col-md-10">
+            <%= f.submit "Send", class: "btn btn-primary", data: { send: "message" } %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

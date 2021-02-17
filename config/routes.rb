@@ -34,4 +34,7 @@ Rails.application.routes.draw do
   delete "/userlogout", to: "cookies#destroy"
 
   mount ActionCable.server => '/cable'
+  get "/chat", to: "chatrooms#show"
+
+  resources :messages, only: [:create]
 end

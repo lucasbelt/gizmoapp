@@ -108,6 +108,37 @@ a,
 .input_checkbox input {
   width: auto !important;
 }
+.chat-container {
+  display: block;
+  .messages {
+    width: 50%;
+    float: left;
+    margin-right: 5%;
+    height: 16em;
+    position: relative;
+    overflow: auto;
+  }
+  .messages-container {
+    width: 45%;
+    float: right;
+  }
+  .message {
+    align-items: center;
+    display: flex;
+    margin-bottom: 15px;
+    .chef_info {
+      margin-right: 15px;
+      margin-top: 0;
+    }
+    p {
+      margin: 0;
+      small {
+        display: block;
+        text-align: right;
+      }
+    }
+  }
+}
 /*.navbar-default .navbar-nav > .active > a,
 .navbar-default .navbar-nav > .active > a:hover,
 .navbar-default .navbar-nav > .active > a:focus {

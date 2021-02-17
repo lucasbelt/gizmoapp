@@ -6,5 +6,5 @@ App.ccomments = App.cable.subscriptions.create "CcommentsChannel",
     # Called when the subscription has been terminated by the server
 
   received: (data) ->
-    $("#messages").prepend(data)
+    $("#messages .comment-fix:first").prepend(data)
     # Called when there's incoming data on the websocket for this channel
